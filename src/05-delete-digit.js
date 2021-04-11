@@ -9,8 +9,16 @@
  * For n = 152, the output should be 52
  *
  */
-function deleteDigit(/* n */) {
-  throw new Error('Not implemented');
+function deleteDigit(n) {
+  const arr = String(n).split('');
+  let count = Math.min(...arr);
+  for (let i = 0; i < arr.length; i++) {
+    if (+arr[i] === count) {
+      delete arr[i];
+      count = 'false';
+    }
+  }
+  return +arr.join('');
 }
 
 module.exports = deleteDigit;

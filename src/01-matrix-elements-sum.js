@@ -14,8 +14,19 @@
  *
  * The result should be 9
  */
-function getMatrixElementsSum(/* matrix */) {
-  throw new Error('Not implemented');
+
+function getMatrixElementsSum(matrix) {
+  const matrixCopy = JSON.parse(JSON.stringify(matrix));
+  let count = 0;
+  for (let i = 0; i < matrixCopy.length; i++) {
+    for (let j = 0; j < matrixCopy[0].length; j++) {
+      if (matrixCopy[i][j] === 0 && (i + 1) < matrixCopy.length) {
+        matrixCopy[i + 1][j] = 0;
+      }
+      count += matrixCopy[i][j];
+    }
+  }
+  return count;
 }
 
 module.exports = getMatrixElementsSum;
